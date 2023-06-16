@@ -1,0 +1,6 @@
+# Add all scripts under `bin/`
+# Requires the init script to be rerun to update
+exportPATH bin
+
+# Have a command similar to `home` for the dark web
+alias darkweb = home; connect darkweb

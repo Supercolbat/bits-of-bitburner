@@ -1,0 +1,5 @@
+# API key
+.vscode/settings.json
+
+# Testing scripts
+src/tmp/

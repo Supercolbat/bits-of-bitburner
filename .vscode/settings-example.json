@@ -1,0 +1,13 @@
+{
+    "bitburner.authToken": "",
+    "bitburner.scriptRoot": "./src",
+
+    "javascript.preferences.importModuleSpecifier": "non-relative",
+    "typescript.preferences.importModuleSpecifier": "non-relative",
+    
+    "[javascript]": {
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true,
+        "editor.detectIndentation": false
+    }
+}
