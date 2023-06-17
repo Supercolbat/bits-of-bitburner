@@ -11,9 +11,7 @@ import {
   compression_ii_lz_decompression,
   encryption_i_caesar_cipher,
   encryption_ii_vigenere_cipher,
-} from './lib/contracts.js';
-
-// ns.codingcontract.createDummyContract
+} from '/lib/contracts.js';
 
 const contractToFunction = {
   "Find Largest Prime Factor": find_largest_prime_factor,

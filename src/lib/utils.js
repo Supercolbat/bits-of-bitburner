@@ -22,29 +22,21 @@ export function cacheFn(fn) {
 
 /**
  * Recursively scan all servers with connections to the given server.
+ * Still does not work.
  * @param {NS} ns - The NetScript instance
  * @param {string=} startingServer - The first server to scan
  */
 export function discoverServers(ns, startingServer = 'home') {
   const foundServers = [startingServer];
   
-  for (const host of servers) {
-    for (const server of ns.scan(host)) {
-      if (!servers.includes(server))
-        foundServers.push(server)
+  for (const host of ns.scan(startingServer)) {
+    for (const connectedServer of discoverServers(ns, host)) {
+      if (!foundServers.includes(connectedServer))
+        foundServers.push(connectedServer)
     }
   }
 
   return foundServers;
-}
-
-/** @param {string} key */
-export function pressKey(key) {
-  const keyboardEvent = new KeyboardEvent("keydown", {
-    key,
-  });
-
-  doc.dispatchEvent(keyboardEvent);
 }
 
 /**
