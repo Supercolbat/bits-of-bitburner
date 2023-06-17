@@ -21,7 +21,21 @@
       $ ls
       $ ! run
 
-Relevant file tree
+## Is that it?
+
+While there definitely are more scripts in this repository, they're either incomplete or not worth showing off (yet!).
+
+
+## Goals
+
+- [ ] Recreate a bash shell as closely as possible
+- [ ] Set up Typescript and/or ESLint
+- [ ] DOOM emulator
+- [ ] Benchmarking script
+- [ ] [Batching](https://bitburner-official.readthedocs.io/en/latest/advancedgameplay/hackingalgorithms.html#batch-algorithms-hgw-hwgw-or-cycles)
+- [ ] ~~Make the infiltrate faster~~
+
+## Relevant file tree
 
 ```
 📁 src
@@ -64,16 +78,3 @@ Relevant file tree
 ├╴ spread.js             - Same as propagate.js but only targets unaffected servers
 └╴ weaken-loop.js        - Runs weaken on a server
 ```
-
-## Is that it?
-
-While there definitely are more scripts in this repository, they're either incomplete or not worth showing off (yet!).
-
-## Goals
-
-* Recreate a bash shell as closely as possible
-* Set up Typescript and/or ESLint
-* DOOM emulator
-* Benchmarking script
-* [Batching](https://bitburner-official.readthedocs.io/en/latest/advancedgameplay/hackingalgorithms.html#batch-algorithms-hgw-hwgw-or-cycles)
-* ~~Make the infiltrate faster~~
