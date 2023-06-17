@@ -80,7 +80,7 @@ DOM_KEY_LOCATION_STANDARD: arg.DOM_KEY_LOCATION_STANDARD,
             args[0] = hackedEvent;
           }
 
-          return callback.apply(callback, args);
+          return callback.call(callback, ...args);
         };
 
         for (const key in callback) {
@@ -140,7 +140,8 @@ DOM_KEY_LOCATION_STANDARD: arg.DOM_KEY_LOCATION_STANDARD,
       }
 
       if (targetEv.length == 0)
-        delete this.eventListeners[type];
+        // delete this.eventListeners[type];
+        this.eventListeners[type] = undefined;
 
       return this._removeEventListener(type, callback, options);
     };

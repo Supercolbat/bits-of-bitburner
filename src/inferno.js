@@ -13,10 +13,18 @@ const Config = {
 };
 
 /**
- * The speed to run events at
+ * The speed to run events at. Since this value is used in a setInterval, setting the delay to 0ms
+ * doesn't mean that there won't be a delay. It means that it will run in the next event cycle.
+ * 
+ * https://developer.mozilla.org/en-US/docs/Web/API/setTimeout#parameters
+ * 
+ * Suggested speeds:
+ *   0 - Full throttle!
+ *  25 - Safe speed
+ * 25+ - Low-end PC
  * @type {number}
  */
-const Delay = 1;
+const Delay = 0;
 
 const createKeyboardEvent = cacheFn(key => new KeyboardEvent(
   'keydown',
@@ -162,6 +170,7 @@ export async function main(ns) {
         // Wait some time before checking what screen we're on
         await sleep(Delay);
 
+        // TODO: find out if this is actually better
         const children = containerElement.children[0].children[0].children;
         const title = children[children.length - 1].children[0].innerText;
         switch (title) {
@@ -312,14 +321,15 @@ async function playMatchingGame() {
     const velocityY = cursorY < posY ? 1 : -1;  // 1 for down, -1 for up (and technically when equal)
     const vertKey = velocityY == 1 ? 'ArrowDown' : 'ArrowUp';
 
-    // Move diagonally
-    // while (cursorX != posX && cursorY != posY) {
-    //   await sleep(Delay);
-    //   pressKey(horizKey);
-    //   pressKey(vertKey);
-    //   cursorX += velocityX;
-    //   cursorY += velocityY;
-    // }
+    // Move diagonally because I like it
+    while (cursorX != posX && cursorY != posY) {
+      await sleep(Delay);
+      pressKey(horizKey);
+      await sleep(Delay);
+      pressKey(vertKey);
+      cursorX += velocityX;
+      cursorY += velocityY;
+    }
 
     // Move horizontally
     while (cursorX != posX) {
@@ -381,14 +391,15 @@ async function playMinesweeper(savedMines) {
     const velocityY = cursorY < posY ? 1 : -1;  // 1 for down, -1 for up (and technically when equal)
     const vertKey = velocityY == 1 ? 'ArrowDown' : 'ArrowUp';
 
-    // Move diagonally
-    // while (cursorX != posX && cursorY != posY) {
-    //   await sleep(Delay);
-    //   pressKey(horizKey);
-    //   pressKey(vertKey);
-    //   cursorX += velocityX;
-    //   cursorY += velocityY;
-    // }
+    // Move diagonally because I like it
+    while (cursorX != posX && cursorY != posY) {
+      await sleep(Delay);
+      pressKey(horizKey);
+      await sleep(Delay);
+      pressKey(vertKey);
+      cursorX += velocityX;
+      cursorY += velocityY;
+    }
 
     // Move horizontally
     while (cursorX != posX) {
@@ -423,17 +434,26 @@ async function playMinesweeper(savedMines) {
 }
 
 async function playArrowGame() {
-  const arrowKey = { '↑': 'ArrowUp', '←': 'ArrowLeft', '↓': 'ArrowDown', '→': 'ArrowRight' };
-
   const arrowElement = doc.querySelector('.MuiContainer-root > div:last-child > h4:last-child');
 
   while (true) {
-    const key = arrowKey[arrowElement.innerText];
+    switch (arrowElement.innerText) {
+      case '↑':
+        pressKey('ArrowUp');
+        break;
+      case '←':
+        pressKey('ArrowLeft');
+        break;
+      case '↓':
+        pressKey('ArrowDown');
+        break;
+      case '→':
+        pressKey('ArrowRight');
+        break;
+      default:
+        return;
+    }
 
-    if (!key)
-      break;
-
-    pressKey(key);
     await sleep(Delay);
   }
 }
@@ -447,8 +467,6 @@ async function playUnfairWithoutAugmentGame() {
     await sleep(Delay);
   }
   
-  // Wait a bit so we don't click too early
-  await sleep(Delay / 2);
   pressKey(' ');
 }
 
