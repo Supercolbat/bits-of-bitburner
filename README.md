@@ -11,11 +11,11 @@
 
 ## Whats inside?
 
-* [Auto-Infiltration](https://github.com/Supercolbat/bits-of-bitburner/src/inferno.js) - It's fast. *Really* fast.
+* [Auto-Infiltration](https://github.com/Supercolbat/bits-of-bitburner/blob/main/src/inferno.js) - It's fast. *Really* fast.
 
-* [Neofetch](https://github.com/Supercolbat/bits-of-bitburner/src/bin/neofetch.js) - Show off your (ingame) specs.
+* [Neofetch](https://github.com/Supercolbat/bits-of-bitburner/blob/main/src/bin/neofetch.js) - Show off your (ingame) specs.
 
-* [Shell history expansion](https://github.com/Supercolbat/bits-of-bitburner/src/bin/_expand_.js) - Prefix a command with `!` to run from history.
+* [Shell history expansion](https://github.com/Supercolbat/bits-of-bitburner/blob/main/src/bin/_expand_.js) - Prefix a command with `!` to run from history.
 
       $ run propagate.js n00dles
       $ ls
