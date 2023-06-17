@@ -168,6 +168,7 @@ export async function main(ns) {
           case 'Get Ready!':
             break;
 
+          case 'Type it':
           case 'Type it backward':
             await playBackwardGame();
             break;
@@ -217,7 +218,7 @@ export async function main(ns) {
 
           default:
             unwrapEventListeners();
-            return
+            return;
         }
       }
 

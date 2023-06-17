@@ -47,17 +47,17 @@ Relevant file tree
 │  ├╴ trustInputs.js       - Allow for simulated keyboard events to be regcongized
 │  └╴ utils.js             - Anything that doesn't fit in the other categories
 ├╴ 📁 script            - User scripts
+│  ├╴ autocontract.js      - Automatically completes contracts
 │  ├╴ benchmark.js         - Benchmark Javascript code
 │  ├╴ dev.js               - Opens the Developer Menu (i swear i dont use it)
 │  ├╴ infiltration.js      - Shows information about infiltratable areas
 │  ├╴ purchase-server.js   - Purchases 1TB servers with an interesting name 
 │  ├╴ root-all.js          - Gets root on all posisble servers
-│  └╴ save-my-money.js     - Automatically sells a specific stock when predicted to drop in price
+│  ├╴ save-my-money.js     - Automatically sells a specific stock when predicted to drop in price
+│  └╴ spend-my-money.js    - Experimental auto-trade script for the stock market
 ├╴ bbrc.txt              - Config file for the up-and-coming bbsh shell
-├╴ autocontract.js       - Automatically completes contracts
 ├╴ grow-loop.js          - Runs grow on a server
-├╴ hack.js               - Basic hacking script
-├╴ hell.js               - Get yourself into debt by failing infiltrations
+├╴ hack.js               - Basic hacking scripts
 ├╴ inferno.js            - Speedrun infiltrations automatically
 ├╴ init_bbsh.js          - Initialization script for bbsh
 ├╴ propagate.js          - Spread and run the hacking script on all available servers
